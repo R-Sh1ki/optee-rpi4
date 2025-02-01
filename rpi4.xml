@@ -20,5 +20,5 @@
     <project path="optee_examples" name="linaro-swg/optee_examples.git" />
 
     <!-- misc -->
-    <project path="optee-rpi4" name="R-Sh1ki/optee-rpi4.git" />
+    <project path="optee-rpi4" name="R-Sh1ki/optee-rpi4.git" revision="main" />
 </manifest>

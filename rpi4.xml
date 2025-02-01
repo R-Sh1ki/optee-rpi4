@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <remote name="github" fetch="https://github.com" />
+    <default remote="github" revision="master" />
+
+    <!-- arm-trusted-firmware git -->
+    <project path="arm-trusted-firmware" name="ARM-software/arm-trusted-firmware.git" revision="refs/tags/v2.12.0" />
+    
+    <!-- buildroot git -->
+    <project path="buildroot" name="buildroot/buildroot.git" revision="master" clone-depth="1" />
+
+    <!-- optee gits -->
+    <project path="build" name="OP-TEE/build.git" />
+    <project path="optee_client" name="OP-TEE/optee_client.git" />
+    <project path="optee_os" name="OP-TEE/optee_os.git" />
+    <project path="optee_ftpm" name="OP-TEE/optee_ftpm.git" />
+    <project path="optee_test" name="OP-TEE/optee_test.git" />
+    
+    <!-- linaro-swg git -->
+    <project path="optee_examples" name="linaro-swg/optee_examples.git" />
+
+    <!-- misc -->
+    <project path="optee-rpi4" name="R-Sh1ki/optee-rpi4.git" />
+</manifest>

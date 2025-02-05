@@ -41,6 +41,14 @@ CROSS_COMPILE_S_KERNEL  ?= "$(CCACHE)$(RISCV$(COMPILE_S_KERNEL)_CROSS_COMPILE)"
 endif
 
 
+patch:
+	@echo "Patching ARM Trusted Firmware (TF-A)..."
+	@cd $(TF_A_PATH) && \
+		patch -p1 < $(BUILD_PATH)/patches/arm-trusted-firmware.patch
+	@echo "Patching OP-TEE OS..."
+	@cd $(OPTEE_OS_PATH) && \
+		patch -p1 < $(BUILD_PATH)/patches/optee-os.patch
+
 ################################################################################
 # Targets
 ################################################################################
@@ -61,8 +69,6 @@ TF_A_FLAGS ?= \
 	V=0
 
 tf-a:
-	cd $(TF_A_PATH) && \
-		patch -p1 < $(BUILD_PATH)/patches/arm-trusted-firmware.patch
 	$(TF_A_EXPORTS) $(MAKE) -C $(TF_A_PATH) $(TF_A_FLAGS)
 
 # ---------------------------------------------------------------------------- #
@@ -118,8 +124,6 @@ OPTEE_OS_COMMON_FLAGS ?= \
 	CFG_DT=y
 
 optee-os:
-	cd $(OPTEE_OS_PATH)	&& \
-		patch -p1 < $(BUILD_PATH)/patches/optee-os.patch
 	$(MAKE) -C $(OPTEE_OS_PATH) $(OPTEE_OS_COMMON_FLAGS)
 
 genfirmware: tf-a optee-os

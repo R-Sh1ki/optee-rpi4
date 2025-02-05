@@ -1,6 +1,6 @@
 --- a/plat/rpi/common/rpi4_bl31_setup.c
 +++ b/plat/rpi/common/rpi4_bl31_setup.c
-@@ -0,0 +134,21 @@
+@@ -134,0 +134,21 @@
 +	/*
 +	 * [RPI4 CONFIGURATION]
 +	 * 1) Copy the OP-TEE OS image to the entry address, because the BL32 binaries are stored in the FIP address space (0x2000 => 128k bytes)

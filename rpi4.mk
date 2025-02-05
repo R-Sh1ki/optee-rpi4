@@ -17,8 +17,7 @@ TF_A_OUT	?= $(TF_A_PATH)/build/rpi4/debug
 ################################################################################
 # Targets
 ################################################################################
-all: tf-a optee-os
-# clean: tf-a-clean buildroot-clean u-boot-clean optee-os-clean
+all: tf-a 
 
 include toolchain.mk
 
@@ -37,4 +36,4 @@ TF_A_FLAGS ?= \
 tf-a:
 	@cd $(TF_A_PATH)
 	@patch -p1 < $(BUILD_PATH)/patches/arm-trusted-firmware.patch
-	$(TF_A_EXPORTS) $(MAKE) -C $(TF_A_PATH) $(TF_A_FLAGS) all fip
+	$(TF_A_EXPORTS) $(MAKE) -C $(TF_A_PATH) $(TF_A_FLAGS)

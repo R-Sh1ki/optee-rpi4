@@ -9,7 +9,7 @@ override COMPILE_S_USER    := 64
 override COMPILE_S_KERNEL  := 64
 
 ROOT		?= $(shell pwd)/..
-BUILD_PATH	?= $(ROOT)/build	
+BUILD_PATH	?= $(ROOT)/build
 
 TF_A_PATH	?= $(ROOT)/trusted-firmware-a
 TF_A_OUT	?= $(TF_A_PATH)/build/rpi4/debug

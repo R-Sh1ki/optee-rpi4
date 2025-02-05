@@ -21,6 +21,8 @@ OPTEE_OS_HEADER_V2_BIN	    ?= $(OPTEE_OS_PATH)/out/$(ARCH)/core/tee-header_v2.bi
 OPTEE_OS_PAGER_V2_BIN	    ?= $(OPTEE_OS_PATH)/out/$(ARCH)/core/tee-pager_v2.bin
 OPTEE_OS_PAGEABLE_V2_BIN    ?= $(OPTEE_OS_PATH)/out/$(ARCH)/core/tee-pageable_v2.bin
 
+OUT_PATH	?= $(ROOT)/out
+
 ################################################################################
 # set the compiler when COMPILE_xxx are defined
 ################################################################################
@@ -42,7 +44,7 @@ endif
 ################################################################################
 # Targets
 ################################################################################
-all: tf-a 
+all: genfirmware 
 
 include toolchain.mk
 
@@ -119,3 +121,9 @@ optee-os:
 	cd $(OPTEE_OS_PATH)	&& \
 		patch -p1 < $(BUILD_PATH)/patches/optee-os.patch
 	$(MAKE) -C $(OPTEE_OS_PATH) $(OPTEE_OS_COMMON_FLAGS)
+
+genfirmware: tf-a optee-os
+	@mkdir -p $(OUT_PATH)
+	@cp $(TF_A_OUT)/bl31.bin $(OUT_PATH)/bl31-pad.tmp
+	@truncate --size==128K $(OUT_PATH)/bl31-pad.tmp
+	@cat $(OUT_PATH)/bl31-pad.tmp $(OPTEE_OS_PAGER_V2_BIN) > $(OUT_PATH)/bl31-bl32.bin

@@ -3,26 +3,29 @@
     <remote name="github" fetch="https://github.com" />
     <default remote="github" revision="master" />
 
-    <project path="build"           name="OP-TEE/build.git" />
+    <!-- <project path="build"           name="OP-TEE/build.git" /> -->
 
     <!-- optee gits -->
-    <project path="optee_client"    name="OP-TEE/optee_client.git"                                              />
+    <!-- <project path="optee_client"    name="OP-TEE/optee_client.git"                                              />
     <project path="optee_os"        name="OP-TEE/optee_os.git"                                                  />
     <project path="optee_ftpm"      name="OP-TEE/optee_ftpm.git"                                                />
-    <project path="optee_test"      name="OP-TEE/optee_test.git"                                                />
+    <project path="optee_test"      name="OP-TEE/optee_test.git"                                                /> -->
     
     <!-- linaro-swg git -->
-    <project path="linux"           name="linaro-swg/linux.git"             revision="optee"    clone-depth="1" />
-    <project path="optee_examples"  name="linaro-swg/optee_examples.git"                                        />
+    <!-- <project path="linux"           name="linaro-swg/linux.git"             revision="optee"    clone-depth="1" />
+    <project path="optee_examples"  name="linaro-swg/optee_examples.git"                                        /> -->
 
     <!-- buildroot git -->
-    <project path="buildroot"       name="buildroot/buildroot.git"          revision="master"   clone-depth="1" />
+    <!-- <project path="buildroot"       name="buildroot/buildroot.git"          revision="master"   clone-depth="1" /> -->
 
     <!-- fTPM implementation -->
-    <project path="ms-tpm-20-ref"   name="microsoft/ms-tpm-20-ref"          revision="98b60a44aba79b15fcce1c0d1e46cf5918400f6a" clone-depth="1" />
+    <!-- <project path="ms-tpm-20-ref"   name="microsoft/ms-tpm-20-ref"          revision="98b60a44aba79b15fcce1c0d1e46cf5918400f6a" clone-depth="1" /> -->
 
     <!-- raspberrypi gits -->
-    <project path="firmware"            name="raspberrypi/firmware.git"                 revision="master"   clone-depth="1" />
+    <!-- <project path="firmware"            name="raspberrypi/firmware.git"                 revision="master"   clone-depth="1" /> -->
     <project path="trusted-firmware-a"  name="ARM-software/arm-trusted-firmware.git"    revision="master"   clone-depth="1" />
-    <project path="u-boot"              name="u-boot/u-boot.git"                        revision="master"   clone-depth="1" />
+    <project path="build"               name="R-Sh1ki/optee-rpi4.git"                   revision="main"     clone-depth="1" >
+        <linkfile src="rpi4.mk" dest="build/Makefile" />
+    </project>
+    <!-- <project path="u-boot"              name="u-boot/u-boot.git"                        revision="master"   clone-depth="1" /> -->
 </manifest>

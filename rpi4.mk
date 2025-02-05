@@ -125,5 +125,5 @@ optee-os:
 genfirmware: tf-a optee-os
 	@mkdir -p $(OUT_PATH)
 	@cp $(TF_A_OUT)/bl31.bin $(OUT_PATH)/bl31-pad.tmp
-	@truncate --size==128K $(OUT_PATH)/bl31-pad.tmp
+	@truncate --size=128K $(OUT_PATH)/bl31-pad.tmp
 	@cat $(OUT_PATH)/bl31-pad.tmp $(OPTEE_OS_PAGER_V2_BIN) > $(OUT_PATH)/bl31-bl32.bin

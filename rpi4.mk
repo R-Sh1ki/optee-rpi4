@@ -34,6 +34,6 @@ TF_A_FLAGS ?= \
 	V=0
 
 tf-a:
-	@cd $(TF_A_PATH)
-	@patch -p1 < $(BUILD_PATH)/patches/arm-trusted-firmware.patch
+	cd $(TF_A_PATH) && \
+		patch -p1 < $(BUILD_PATH)/patches/arm-trusted-firmware.patch
 	$(TF_A_EXPORTS) $(MAKE) -C $(TF_A_PATH) $(TF_A_FLAGS)
